@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLSOX — A New Era of Sox is Coming</title>
+<meta name="description" content="BLSOX. A new era of sox is coming.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-base:   #121110;
+    --bg-deep:   #0a0908;
+    --steel:     #4d4a42;
+    --oxide:     #a8582f;
+    --oxide-dim: #6e3a20;
+    --paper:     #ece5d6;
+    --paper-dim: rgba(236,229,214,0.56);
+    --line:      rgba(236,229,214,0.09);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    height:100%;
+    background:var(--bg-base);
+    color:var(--paper);
+    font-family:'Archivo', sans-serif;
+    overflow:hidden;
+  }
+
+  .bg-base{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    background:
+      radial-gradient(120% 90% at 50% 18%, #1c1916 0%, var(--bg-base) 45%, var(--bg-deep) 100%);
+  }
+
+  .page{
+    position:relative;
+    z-index:1;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .hero{
+    position:relative;
+    flex:1 1 auto;
+    min-height:0;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:4vh 6vw 2vh;
+  }
+
+  .bg-bands{
+    position:absolute;
+    inset:0;
+    background-image: repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.014) 0px,
+      rgba(255,255,255,0.014) 1px,
+      transparent 1px,
+      transparent 64px
+    );
+  }
+
+  .bg-mark{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:min(150vw, 1400px);
+    height:min(150vw, 1400px);
+    transform:translate(-50%,-52%) rotate(-8deg);
+    border:1.5px solid rgba(236,229,214,0.05);
+    pointer-events:none;
+  }
+
+  .bg-mark::before{
+    content:"";
+    position:absolute;
+    top:8%;
+    left:8%;
+    right:8%;
+    bottom:8%;
+    border:1px solid rgba(236,229,214,0.035);
+  }
+
+  .photo-band{
+    position:relative;
+    flex:0 0 auto;
+    width:100%;
+    height:clamp(240px, 48vh, 520px);
+    overflow:hidden;
+  }
+
+  .photo{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:50% 15%;
+    filter:grayscale(0.55) saturate(0.7) contrast(1.05) brightness(0.88);
+    display:block;
+  }
+
+  .photo-fade{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+      to bottom,
+      var(--bg-base) 0%,
+      rgba(18,17,16,0.7) 12%,
+      rgba(18,17,16,0.22) 32%,
+      rgba(18,17,16,0) 55%,
+      rgba(18,17,16,0) 80%,
+      rgba(10,9,8,0.5) 100%
+    );
+  }
+
+  .bg-overlay{
+    position:fixed;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+  }
+
+  .bg-grain{
+    position:absolute;
+    inset:-50px;
+    opacity:0.5;
+    mix-blend-mode:overlay;
+  }
+
+  .bg-vignette{
+    position:absolute;
+    inset:0;
+    box-shadow: inset 0 0 18vw 2vw rgba(0,0,0,0.65);
+  }
+
+  .content{
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    animation: rise 1.1s cubic-bezier(.2,.7,.2,1) both;
+  }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(14px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .logo{
+    width:clamp(240px, 42vw, 560px);
+    height:auto;
+    color:var(--paper);
+    display:block;
+  }
+
+  .tagline{
+    margin-top:clamp(26px, 4.5vw, 40px);
+    font-weight:500;
+    font-size:clamp(0.82rem, 1.6vw, 1.05rem);
+    letter-spacing:0.16em;
+    color:var(--paper-dim);
+  }
+
+  footer{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:3;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px clamp(20px, 4vw, 40px);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--paper-dim);
+    border-top:1px solid var(--line);
+  }
+
+  footer a{
+    color:var(--paper-dim);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  footer a:hover{
+    color:var(--paper);
+    border-color:var(--oxide);
+  }
+
+  @media (max-width: 480px){
+    footer{ font-size:0.66rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .content{ animation:none; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="bg-base"></div>
+
+  <div class="page">
+    <div class="hero">
+      <div class="bg-bands"></div>
+      <div class="bg-mark"></div>
+
+      <div class="content">
+        <svg class="logo" viewBox="0 0 708.661 99.2126" role="img" aria-label="BLSOX">
+<path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 241.410156 60.984375 C 241.410156 56.851562 238.445312 54.695312 235.121094 54.425781 C 233.949219 54.335938 232.511719 54.335938 231.074219 54.335938 L 222.804688 54.335938 L 222.804688 67.636719 L 231.523438 67.636719 C 232.960938 67.636719 234.398438 67.636719 235.570312 67.546875 C 238.445312 67.367188 241.410156 65.03125 241.410156 60.984375 M 222.804688 42.648438 L 230.085938 42.648438 C 231.523438 42.648438 232.871094 42.558594 234.042969 42.378906 C 237.007812 41.929688 239.074219 40.402344 239.074219 36.71875 C 239.074219 33.214844 237.1875 31.503906 234.128906 31.054688 C 232.960938 30.875 231.523438 30.785156 230.085938 30.785156 L 222.804688 30.785156 Z M 258.308594 61.527344 C 258.308594 73.117188 248.871094 78.871094 240.511719 79.859375 C 237.367188 80.21875 235.300781 80.21875 231.34375 80.21875 L 206.628906 80.21875 L 206.628906 18.203125 L 232.0625 18.203125 C 235.386719 18.203125 236.828125 18.203125 239.972656 18.5625 C 250.21875 19.820312 255.972656 26.292969 255.972656 34.382812 C 255.972656 40.042969 253.003906 44.359375 246.894531 46.515625 C 254.714844 48.761719 258.308594 53.976562 258.308594 61.527344 "/>
+<path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 315.382812 80.21875 L 267.835938 80.21875 L 267.835938 18.203125 L 284.011719 18.203125 L 284.011719 66.558594 L 315.382812 66.558594 Z M 315.382812 80.21875 "/>
+<path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 370.566406 37.347656 L 354.386719 37.347656 C 353.667969 32.222656 350.972656 28.808594 345.667969 28.808594 C 341.984375 28.808594 339.46875 30.605469 339.46875 34.382812 C 339.46875 38.335938 342.34375 40.761719 352.589844 43.1875 C 366.25 46.425781 371.824219 53.257812 371.824219 62.78125 C 371.824219 75.1875 359.960938 81.476562 347.46875 81.476562 C 331.738281 81.476562 321.132812 75.1875 320.144531 61.253906 L 336.324219 61.253906 C 337.402344 67.097656 342.164062 69.613281 347.019531 69.613281 C 351.511719 69.613281 354.925781 67.277344 354.925781 63.859375 C 354.925781 60.625 352.589844 57.839844 344.949219 55.953125 C 330.839844 52.445312 322.570312 48.042969 322.570312 35.640625 C 322.570312 23.6875 333.714844 16.945312 346.03125 16.945312 C 362.386719 16.945312 369.21875 25.84375 370.566406 37.347656 "/>
+<path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 425.121094 49.210938 C 425.121094 36 419.28125 28.808594 409.933594 28.808594 C 400.585938 28.808594 394.742188 36 394.742188 49.210938 C 394.742188 62.332031 400.585938 69.613281 409.933594 69.613281 C 419.28125 69.613281 425.121094 62.332031 425.121094 49.210938 M 441.660156 49.210938 C 441.660156 69.074219 429.257812 81.476562 409.933594 81.476562 C 390.609375 81.476562 378.207031 69.074219 378.207031 49.210938 C 378.207031 29.257812 390.609375 16.945312 409.933594 16.945312 C 429.257812 16.945312 441.660156 29.257812 441.660156 49.210938 "/>
+<path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 476.980469 59.277344 L 464.9375 80.21875 L 445.433594 80.21875 L 467.632812 48.941406 L 446.960938 18.203125 L 465.835938 18.203125 L 477.519531 38.875 L 490.105469 18.203125 L 508.707031 18.203125 L 487.046875 48.671875 L 508.886719 80.21875 L 490.011719 80.21875 Z M 476.980469 59.277344 "/>
+<path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 190.226562 80.226562 L 66.484375 80.226562 L 66.484375 18.203125 L 190.226562 18.203125 Z M 190.226562 80.226562 "/>
+<path fill-rule="nonzero" fill="currentColor" fill-opacity="1" d="M 645.355469 80.226562 L 521.613281 80.226562 L 521.613281 18.203125 L 645.355469 18.203125 Z M 645.355469 80.226562 "/>
+</svg>
+        <p class="tagline">A NEW ERA OF COMFORT IS COMING.</p>
+      </div>
+    </div>
+
+    <div class="photo-band">
+      <img class="photo" src="model-19.jpg" alt="BLSOX model">
+      <div class="photo-fade"></div>
+    </div>
+  </div>
+
+  <div class="bg-overlay">
+    <svg class="bg-grain" width="100%" height="100%">
+      <filter id="grain">
+        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"></feTurbulence>
+        <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"></feColorMatrix>
+      </filter>
+      <rect width="100%" height="100%" filter="url(#grain)"></rect>
+    </svg>
+    <div class="bg-vignette"></div>
+  </div>
+
+  <footer>
+    <span>BLSOX</span>
+    <span>&copy; 2026</span>
+  </footer>
+
+</body>
+</html>
